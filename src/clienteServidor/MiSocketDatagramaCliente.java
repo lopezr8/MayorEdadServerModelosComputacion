@@ -12,8 +12,8 @@ public class MiSocketDatagramaCliente extends DatagramSocket {
 	MiSocketDatagramaCliente(int numPuerto) throws SocketException{
 		super(numPuerto);
 	}
-	public void enviaMensaje(InetAddress maquinaReceptora,int puertoReceptor,String mensaje) throws IOException {
-		byte[] almacenEnvio = mensaje.getBytes();
+	public void enviaMensaje(InetAddress maquinaReceptora,int puertoReceptor,String nombredad) throws IOException {
+		byte[] almacenEnvio = nombredad.getBytes();
 		DatagramPacket datagrama = new DatagramPacket(almacenEnvio,almacenEnvio.length,maquinaReceptora,puertoReceptor);
 		this.send(datagrama);
 	}

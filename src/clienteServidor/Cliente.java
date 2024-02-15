@@ -9,15 +9,29 @@ public class Cliente {
 		InputStreamReader is = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(is);
 	try {
-		System.out.print("Bienvenido al cliente Daytime.X n " + "¿Cual es el nombre edl servidor?");
-		String nombreMaquina = br.readLine();
-		if(nombreMaquina.length()==0)
-			nombreMaquina = "localhost";
-		System.out.print("Cual es el # de puerto del servidor?");
-		String numPuerto = br.readLine();
-		if(numPuerto.length()==0)
-			numPuerto="13";
-		System.out.print("Marca de tiempo recibida del servidor"+ClienteDayTimeAuxiliar1.obtenerMarcatiempo(nombreMaquina,numPuerto));
+		System.out.print("Bienvenido al cliente ");
+		String nombreMaquina = "localhost";
+		String numPuerto="13";
+		
+		boolean b =true; 
+		String nombre="";
+		while(b) {
+			System.out.print("Cual es su nombre?");
+			nombre = br.readLine();
+			if(nombre.length()>0) b=false;
+				
+		}
+		b = true;
+		String edad="";
+		while(b) {
+			System.out.print("Cual es su edad?");
+			edad =   br.readLine();
+			if(edad.length()>0) b=false;
+				
+		}
+		String edadnombre = nombre+"-"+edad;
+		
+		System.out.print( "Informción recibida del servidor\n"+ClienteAuxiliar1.obtenerinfo(nombreMaquina,numPuerto,edadnombre) );
 	}
 	catch(Exception ex) {
 		ex.printStackTrace();
